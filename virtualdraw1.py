@@ -22,18 +22,18 @@ print(len(overlayList))
 header = overlayList[0]
 drawColor = (255, 0, 255)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(3, 1280)
 cap.set(4, 720)
 
 detector = htm.handDetector(detectionCon=0.85,maxHands=1)
 xp, yp = 0, 0
-imgEdit = cv2.imread(ScannedImg)
 imgCanvas = np.zeros((720, 1280, 3), np.uint8)
-imgEdit=cv2.resize(imgEdit,(1280,720))
 while True:
 
     # 1. Import image
+    imgEdit = cv2.imread(ScannedImg)
+    imgEdit = cv2.resize(imgEdit, (1280, 720))
     success, img = cap.read()
     img = cv2.flip(img, 1)
     # 2. Find Hand Landmarks
