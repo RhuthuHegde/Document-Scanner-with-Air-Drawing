@@ -6,11 +6,11 @@ import handtracking as htm
 
 #######################
 brushThickness = 10
-eraserThickness = 100
+eraserThickness = 80
 ########################
 
 
-folderPath ="Header-Files"
+folderPath ="Header"
 Scan =r'Processed_image/img_1.jpg'
 myList = os.listdir(folderPath)
 print(myList)
@@ -23,7 +23,7 @@ header = overlayList[0]
 print("header image shape",header.shape)
 drawColor = (255, 0, 255)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
 
@@ -38,6 +38,7 @@ while True:
     # 1. Import image
     success, img = cap.read()
     img = cv2.flip(img, 1)
+    img=cv2.resize(img,(1280,720))
     print("orig image shape",img.shape)
     # 2. Find Hand Landmarks
     img = detector.findHands(img)
@@ -115,8 +116,10 @@ while True:
     # Setting the header image
     img[0:125, 0:1280] = header
     img = cv2.addWeighted(img,0.5,imgCanvas,0.5,0)
+    ScannedImg=cv2.resize(ScannedImg,(720,1000))
+    # img=cv2.resize(img,(720,1000))
     cv2.imshow("Image", img)
-    cv2.imshow("Canvas", imgCanvas)
+    # cv2.imshow("Canvas", imgCanvas)
     cv2.imshow("Scanned",ScannedImg)
     # cv2.imshow("Inv", imgInv)
     cv2.waitKey(1)
