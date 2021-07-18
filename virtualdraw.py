@@ -11,7 +11,7 @@ eraserThickness = 80
 
 
 folderPath ="Header"
-Scan =r'Processed_image/img_1.jpg'
+Scan =r'D:\6th semester\CV Projects-3 credits\air draw project\output\img_1.jpg'
 myList = os.listdir(folderPath)
 print(myList)
 overlayList = []
@@ -116,7 +116,7 @@ while True:
     # Setting the header image
     img[0:125, 0:1280] = header
     img = cv2.addWeighted(img,0.5,imgCanvas,0.5,0)
-    ScannedImg=cv2.resize(ScannedImg,(720,1000))
+    ScannedImg=cv2.resize(ScannedImg,(930,1000))
     # img=cv2.resize(img,(720,1000))
     cv2.imshow("Image", img)
     # cv2.imshow("Canvas", imgCanvas)
