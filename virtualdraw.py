@@ -5,13 +5,13 @@ import os
 import handtracking as htm
 
 #######################
-brushThickness = 10
+brushThickness = 5
 eraserThickness = 80
 ########################
 
 
 folderPath ="Header"
-Scan =r'D:\6th semester\CV Projects-3 credits\air draw project\output\img_1.jpg'
+Scan =r'D:\6th semester\CV Projects-3 credits\air draw project\output\img_4.jpg'
 myList = os.listdir(folderPath)
 print(myList)
 overlayList = []
